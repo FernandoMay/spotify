@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:spotifyapi/repository/services.dart';
 import 'package:spotifyapi/views/albumpage.dart';
 import 'package:spotifyapi/views/albumview.dart';
 import 'package:spotifyapi/views/home.dart';
+import 'package:spotifyapi/views/login.dart';
+import 'package:spotifyapi/views/musicdetail.dart';
 import 'package:spotifyapi/views/splash.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
@@ -28,17 +33,19 @@ class MyApp extends StatelessWidget {
       title: 'spotify',
       theme: ctheme(),
       debugShowCheckedModeBanner: false,
-      home: Splash(),
-      // routes: <String, WidgetBuilder>{
-      //   //'/login': (BuildContext context) => Login(),
-      //   '/home': (context) => Home(),
-      //   '/splash': (context) => Splash(),
-      //   '/navy': (context) => Navy(),
-      //   '/home/albumview': (context) => const AlbumView(),
-      //   '/home/albumpage': (context) => const AlbumPage(),
-      //   //'/musicdetail':(context) => Musi
-      //   //'/wait': (BuildContext context) => Wait(),
-      // },
+      home: const House(),
+      routes: <String, WidgetBuilder>{
+        // '/login': (BuildContext context) => Login(),
+        '/home': (context) => const Home(),
+        '/splash': (context) => const Splash(),
+        '/navy': (context) => Navy(),
+        '/home/albumview': (context) => const AlbumView(),
+        '/home/albumpage': (context) => const AlbumPage(),
+        '/house': (context) => const House(),
+
+        // '/musicdetail':(context) => MusicDetailPage(title: context., description: description, color: color, img: img, songUrl: songUrl)
+        // '/wait': (BuildContext context) => Wait(),
+      },
     );
   }
 }

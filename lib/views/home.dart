@@ -5,7 +5,7 @@ import 'package:spotifyapi/views/albumpage.dart';
 class Navy extends StatelessWidget {
   Navy({Key? key}) : super(key: key);
 
-  final List _tabs = [Home(), HomePage()];
+  final List _tabs = [const Home(), HomePage()];
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,8 @@ class Navy extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -41,12 +43,12 @@ class _HomeState extends State<Home> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * .6,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFf1C7A74),
             ),
           ),
           SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -66,7 +68,7 @@ class _HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
@@ -79,7 +81,7 @@ class _HomeState extends State<Home> {
                                 .navTitleTextStyle,
                           ),
                           Row(
-                            children: [
+                            children: const [
                               Icon(CupertinoIcons.arrow_2_circlepath),
                               SizedBox(width: 16),
                               Icon(CupertinoIcons.settings),
@@ -90,10 +92,10 @@ class _HomeState extends State<Home> {
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      physics: BouncingScrollPhysics(),
-                      padding: EdgeInsets.all(16),
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.all(16),
                       child: Row(
-                        children: [
+                        children: const [
                           AlbumCard(
                             label: "Best Mode",
                             image: AssetImage("assets/album7.jpg"),
@@ -121,7 +123,7 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 32),
+                    const SizedBox(height: 32),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
@@ -133,9 +135,9 @@ class _HomeState extends State<Home> {
                                 .textTheme
                                 .dateTimePickerTextStyle,
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Row(
-                            children: [
+                            children: const [
                               RowAlbumCard(
                                 label: "Top 50 - Global",
                                 image: AssetImage("assets/top50.jpg"),
@@ -147,9 +149,9 @@ class _HomeState extends State<Home> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Row(
-                            children: [
+                            children: const [
                               RowAlbumCard(
                                 label: "RapCaviar",
                                 image: AssetImage("assets/album2.jpg"),
@@ -161,9 +163,9 @@ class _HomeState extends State<Home> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Row(
-                            children: [
+                            children: const [
                               RowAlbumCard(
                                 label: "Top 50 - USA",
                                 image: AssetImage("assets/album9.jpg"),
@@ -192,12 +194,12 @@ class _HomeState extends State<Home> {
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          physics: BouncingScrollPhysics(),
-                          padding: EdgeInsets.symmetric(
+                          physics: const BouncingScrollPhysics(),
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 20,
                           ),
                           child: Row(
-                            children: [
+                            children: const [
                               SongCard(
                                 image: AssetImage("assets/album2.jpg"),
                               ),
@@ -226,7 +228,7 @@ class _HomeState extends State<Home> {
                         )
                       ],
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -241,12 +243,12 @@ class _HomeState extends State<Home> {
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          physics: BouncingScrollPhysics(),
-                          padding: EdgeInsets.symmetric(
+                          physics: const BouncingScrollPhysics(),
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 20,
                           ),
                           child: Row(
-                            children: [
+                            children: const [
                               SongCard(
                                 image: AssetImage("assets/album8.jpg"),
                               ),
@@ -275,7 +277,7 @@ class _HomeState extends State<Home> {
                         )
                       ],
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ),
@@ -314,7 +316,7 @@ class RowAlbumCard extends StatelessWidget {
               width: 48,
               fit: BoxFit.cover,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text(label)
           ],
         ),
@@ -349,7 +351,7 @@ class AlbumCard extends StatelessWidget {
             height: size,
             fit: BoxFit.cover,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(label),
         ],
       ),
@@ -410,7 +412,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: const [
               Text(
                 "Explore",
                 style: TextStyle(
@@ -457,7 +459,7 @@ class _HomePageState extends State<HomePage> {
                                   color: activeMenu1 == index ? primary : grey,
                                   fontWeight: FontWeight.w600),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 3,
                             ),
                             activeMenu1 == index
@@ -476,7 +478,7 @@ class _HomePageState extends State<HomePage> {
                   })),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SingleChildScrollView(
@@ -506,17 +508,17 @@ class _HomePageState extends State<HomePage> {
                                     color: primary,
                                     borderRadius: BorderRadius.circular(10)),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
                                 songs[index]['title'],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 15,
                                     color: white,
                                     fontWeight: FontWeight.w600),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Container(
@@ -525,7 +527,7 @@ class _HomePageState extends State<HomePage> {
                                   songs[index]['description'],
                                   maxLines: 1,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 12,
                                       color: grey,
                                       fontWeight: FontWeight.w600),
@@ -541,7 +543,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Column(
@@ -571,7 +573,7 @@ class _HomePageState extends State<HomePage> {
                                   color: activeMenu2 == index ? primary : grey,
                                   fontWeight: FontWeight.w600),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 3,
                             ),
                             activeMenu2 == index
@@ -590,7 +592,7 @@ class _HomePageState extends State<HomePage> {
                   })),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SingleChildScrollView(
@@ -619,17 +621,17 @@ class _HomePageState extends State<HomePage> {
                                     color: primary,
                                     borderRadius: BorderRadius.circular(10)),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
                                 songs[index + 5]['title'],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 15,
                                     color: white,
                                     fontWeight: FontWeight.w600),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Container(
@@ -638,7 +640,7 @@ class _HomePageState extends State<HomePage> {
                                   songs[index + 5]['description'],
                                   maxLines: 1,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 12,
                                       color: grey,
                                       fontWeight: FontWeight.w600),

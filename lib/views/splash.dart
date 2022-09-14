@@ -2,8 +2,11 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatefulWidget {
+  const Splash({Key? key}) : super(key: key);
+
   @override
   _SplashState createState() => _SplashState();
 }
@@ -17,16 +20,17 @@ class _SplashState extends State<Splash> {
 
   void shared_Preferences() async {
     // SharedPreferences prefs = await SharedPreferences.getInstance();
-    // bool logged = prefs.getBool('logged');
-    // print("LOGGED: ${logged}");
+    // bool? logged = prefs.getBool('logged');
+    bool logged = true;
+    print("LOGGED: ${logged}");
 
-    // if (logged == true && logged != null) {
-    //   Timer(const Duration(seconds: 1, milliseconds: 618),
-    //       () => Navigator.pushReplacementNamed(context, "/home"));
-    // } else {
-    Timer(const Duration(seconds: 1, milliseconds: 618),
-        () => Navigator.of(context).pushReplacementNamed("/navy"));
-    // }
+    if (logged == true && logged != null) {
+      Timer(const Duration(seconds: 0, milliseconds: 710),
+          () => Navigator.pushReplacementNamed(context, "/house"));
+    } else {
+      Timer(const Duration(seconds: 1, milliseconds: 618),
+          () => Navigator.of(context).pushReplacementNamed("/login"));
+    }
   }
 
   @override
@@ -40,9 +44,9 @@ class _SplashState extends State<Splash> {
                 BoxDecoration(color: CupertinoTheme.of(context).primaryColor),
           ),
           Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: ExactAssetImage("assets/splashScreen/start.jpg"),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage("lib/assets/spotify1.jpeg"),
                 fit: BoxFit.fitHeight,
               ),
             ),
@@ -61,24 +65,23 @@ class _SplashState extends State<Splash> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Text(
-                    "Spotify-Clone",
+                    "Spotify",
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                   Container(
                     color: CupertinoColors.black.withOpacity(0.1),
                     height: 1.0,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 4.0, vertical: 2.0),
                   ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.asset("assets/splashScreen/profile.jpg"),
+                    child: Image.asset("lib/assets/spotify44.jpeg"),
                   ),
                   const Text(
-                    "Rodrigo Lara",
-                    style: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.bold),
+                    "Rancio Estevez",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                 ],

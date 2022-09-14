@@ -12,7 +12,13 @@ class Auth extends StatefulWidget {
 }
 
 class _AuthState extends State<Auth> {
+  final String redirectURI = 'https://oauth.pstmn.io/v1/browser-callback';
+  final String callbackURI = 'https://oauth.pstmn.io/v1/browser-callback';
+  final String authURI = 'https://accounts.spotify.com/authorize';
+  final String accessTokenURI = 'https://accounts.spotify.com/api/token';
+
   late String _token;
+  final String clientId = "3fb5a228ac954b87bda7f35a591c2c9f";
   late html.WindowBase _popupWin;
 
   Future<String> _validateToken() async {
@@ -31,7 +37,7 @@ class _AuthState extends State<Auth> {
     /// Close the popup window
     if (_popupWin != null) {
       _popupWin.close();
-      _popupWin = null;
+      // _popupWin = null;
     }
 
     setState(() => _token = receivedUri.fragment

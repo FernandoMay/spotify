@@ -150,7 +150,7 @@ class PlaylistHeader extends StatelessWidget {
                     'PLAYLIST',
                     style: CupertinoTheme.of(context)
                         .textTheme
-                        .navLargeTitleTextStyle!
+                        .navLargeTitleTextStyle
                         .copyWith(fontSize: 12.0),
                   ),
                   const SizedBox(height: 12.0),
@@ -247,34 +247,32 @@ class TracksList extends StatelessWidget {
     required this.tracks,
   }) : super(key: key);
 
-  
-
   @override
   Widget build(BuildContext context) {
-    final selected =
-            context.watch<CurrentTrackModel>().selected?.id == song.id;
+    final selected = true;
+    // context.watchCurrentTrackModel>().selected?.id == song.id;
     final textStyle = TextStyle(
-          color: selected
-              ? CupertinoTheme.of(context).primaryContrastingColor
-              : CupertinoTheme.of(context).barBackgroundColor,
-        );
-     final headingTextStyle= CupertinoTheme.of(context)
-          .textTheme
-          .navLargeTitleTextStyle!
-          .copyWith(fontSize: 12.0);
-        List<TableRow> tableRows = [ TableRow(
-          children: [
-            TableCell(child: Text('TITLE',style: headingTextStyle)),
-            TableCell(child: Text('ARTIST',style: headingTextStyle)),
-            TableCell(child: Text('ALBUM',style: headingTextStyle)),
-            TableCell(child: Icon(CupertinoIcons.timelapse)),
-          ],
-        ),];
-    for(Song song in tracks){
-      
+      color: selected
+          ? CupertinoTheme.of(context).primaryContrastingColor
+          : CupertinoTheme.of(context).barBackgroundColor,
+    );
+    final headingTextStyle = CupertinoTheme.of(context)
+        .textTheme
+        .navLargeTitleTextStyle
+        .copyWith(fontSize: 12.0);
+    List<TableRow> tableRows = [
+      TableRow(
+        children: [
+          TableCell(child: Text('TITLE', style: headingTextStyle)),
+          TableCell(child: Text('ARTIST', style: headingTextStyle)),
+          TableCell(child: Text('ALBUM', style: headingTextStyle)),
+          const TableCell(child: const Icon(CupertinoIcons.timelapse)),
+        ],
+      ),
+    ];
+    for (Song song in tracks) {
       tableRows.add(
         TableRow(
-        
           children: [
             TableCell(
               child: Text(song.title, style: textStyle),
@@ -289,21 +287,20 @@ class TracksList extends StatelessWidget {
               child: Text(song.duration, style: textStyle),
             ),
           ],
+        ),
       );
     }
     return Table(
-      
       // dataRowHeight: 54.0,
       // showCheckboxColumn: false,
       children: tableRows,
       // rows: tracks.map((e) {
-        
-        
-        // return 
-        //   selected: selected,
-        //   onSelectChanged: (_) =>
-        //       context.read<CurrentTrackModel>().selectTrack(e),
-        // );
+
+      // return
+      //   selected: selected,
+      //   onSelectChanged: (_) =>
+      //       context.read<CurrentTrackModel>().selectTrack(e),
+      // );
       // }).toList(),
     );
   }
