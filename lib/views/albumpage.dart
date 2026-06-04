@@ -27,7 +27,7 @@ class _AlbumPageState extends State<AlbumPage> {
                       image: DecorationImage(
                           image: AssetImage(song['img']), fit: BoxFit.cover)),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Padding(
@@ -36,7 +36,7 @@ class _AlbumPageState extends State<AlbumPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(song['title'],
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: white)),
@@ -44,8 +44,8 @@ class _AlbumPageState extends State<AlbumPage> {
                         decoration: BoxDecoration(
                             color: grey,
                             borderRadius: BorderRadius.circular(5)),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
+                        child: const Padding(
+                          padding: EdgeInsets.only(
                               left: 12, right: 12, top: 8, bottom: 8),
                           child: Text(
                             "Subscribe",
@@ -56,7 +56,7 @@ class _AlbumPageState extends State<AlbumPage> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 SingleChildScrollView(
@@ -95,20 +95,20 @@ class _AlbumPageState extends State<AlbumPage> {
                                       color: primary,
                                       borderRadius: BorderRadius.circular(10)),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Text(
                                   songs[index]['title'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 15,
                                       color: white,
                                       fontWeight: FontWeight.w600),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                 ),
-                                Container(
+                                SizedBox(
                                   width: size.width - 210,
                                   child: Row(
                                     mainAxisAlignment:
@@ -118,7 +118,7 @@ class _AlbumPageState extends State<AlbumPage> {
                                         songs[index]['song_count'],
                                         maxLines: 1,
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 12,
                                             color: grey,
                                             fontWeight: FontWeight.w600),
@@ -127,7 +127,7 @@ class _AlbumPageState extends State<AlbumPage> {
                                         songs[index]['date'],
                                         maxLines: 1,
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 12,
                                             color: grey,
                                             fontWeight: FontWeight.w600),
@@ -143,7 +143,7 @@ class _AlbumPageState extends State<AlbumPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Column(
@@ -163,14 +163,14 @@ class _AlbumPageState extends State<AlbumPage> {
                       },
                       child: Row(
                         children: [
-                          Container(
+                          SizedBox(
                             width: (size.width - 60) * 0.77,
                             child: Text(
                               "${index + 1}  " + songAlbums[index]['title'],
-                              style: TextStyle(color: white),
+                              style: const TextStyle(color: white),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: (size.width - 60) * 0.23,
                             height: 50,
                             child: Row(
@@ -178,7 +178,7 @@ class _AlbumPageState extends State<AlbumPage> {
                               children: [
                                 Text(
                                   songAlbums[index]['duration'],
-                                  style: TextStyle(color: grey, fontSize: 14),
+                                  style: const TextStyle(color: grey, fontSize: 14),
                                 ),
                                 Container(
                                   width: 25,
@@ -187,7 +187,7 @@ class _AlbumPageState extends State<AlbumPage> {
                                     shape: BoxShape.circle,
                                     color: grey.withOpacity(0.8),
                                   ),
-                                  child: Center(
+                                  child: const Center(
                                       child: Icon(
                                     CupertinoIcons.play_arrow,
                                     color: white,
@@ -209,7 +209,7 @@ class _AlbumPageState extends State<AlbumPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CupertinoButton(
-                      child: Icon(
+                      child: const Icon(
                         CupertinoIcons.back,
                         color: white,
                       ),
@@ -217,7 +217,7 @@ class _AlbumPageState extends State<AlbumPage> {
                         Navigator.pop(context);
                       }),
                   CupertinoButton(
-                      child: Icon(
+                      child: const Icon(
                         CupertinoIcons.ellipsis_vertical,
                         color: white,
                       ),

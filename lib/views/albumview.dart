@@ -64,7 +64,7 @@ class _AlbumViewState extends State<AlbumView> {
                       boxShadow: [
                         BoxShadow(
                           color: CupertinoColors.black.withOpacity(.5),
-                          offset: Offset(0, 20),
+                          offset: const Offset(0, 20),
                           blurRadius: 32,
                           spreadRadius: 16,
                         )
@@ -78,7 +78,7 @@ class _AlbumViewState extends State<AlbumView> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 ),
               ],
@@ -87,7 +87,7 @@ class _AlbumViewState extends State<AlbumView> {
           SafeArea(
             child: SingleChildScrollView(
               controller: scrollController,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
                   Container(
@@ -119,8 +119,8 @@ class _AlbumViewState extends State<AlbumView> {
                                       .textTheme
                                       .textStyle,
                                 ),
-                                SizedBox(height: 8),
-                                Row(
+                                const SizedBox(height: 8),
+                                const Row(
                                   children: [
                                     Image(
                                       image: AssetImage('assets/logo.png'),
@@ -131,15 +131,15 @@ class _AlbumViewState extends State<AlbumView> {
                                     Text("Spotify")
                                   ],
                                 ),
-                                SizedBox(height: 8),
+                                const SizedBox(height: 8),
                                 Text(
                                   "1,888,132 likes 5h 3m",
                                   style: CupertinoTheme.of(context)
                                       .textTheme
                                       .tabLabelTextStyle,
                                 ),
-                                SizedBox(height: 16),
-                                Stack(
+                                const SizedBox(height: 16),
+                                const Stack(
                                   clipBehavior: Clip.none,
                                   children: [
                                     Row(
@@ -160,14 +160,14 @@ class _AlbumViewState extends State<AlbumView> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     color: CupertinoColors.black,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"),
-                        SizedBox(height: 32),
+                        const SizedBox(height: 32),
                         Text(
                           "You might also like",
                           style: CupertinoTheme.of(context)
@@ -182,30 +182,12 @@ class _AlbumViewState extends State<AlbumView> {
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album3.jpg"),
+                                image: const AssetImage("assets/album3.jpg"),
                               ),
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album5.jpg"),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              AlbumCard(
-                                size: cardSize,
-                                label: "Get Turnt",
-                                image: AssetImage("assets/album6.jpg"),
-                              ),
-                              AlbumCard(
-                                size: cardSize,
-                                label: "Get Turnt",
-                                image: AssetImage("assets/album9.jpg"),
+                                image: const AssetImage("assets/album5.jpg"),
                               ),
                             ],
                           ),
@@ -218,12 +200,30 @@ class _AlbumViewState extends State<AlbumView> {
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album10.jpg"),
+                                image: const AssetImage("assets/album6.jpg"),
                               ),
                               AlbumCard(
                                 size: cardSize,
                                 label: "Get Turnt",
-                                image: AssetImage("assets/album4.jpg"),
+                                image: const AssetImage("assets/album9.jpg"),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              AlbumCard(
+                                size: cardSize,
+                                label: "Get Turnt",
+                                image: const AssetImage("assets/album10.jpg"),
+                              ),
+                              AlbumCard(
+                                size: cardSize,
+                                label: "Get Turnt",
+                                image: const AssetImage("assets/album4.jpg"),
                               ),
                             ],
                           ),
@@ -239,16 +239,16 @@ class _AlbumViewState extends State<AlbumView> {
           Positioned(
               child: Container(
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 250),
+              duration: const Duration(milliseconds: 250),
               color: showTopBar
-                  ? Color(0xFFC61855).withOpacity(1)
-                  : Color(0xFFC61855).withOpacity(0),
-              padding: EdgeInsets.symmetric(
+                  ? const Color(0xFFC61855).withOpacity(1)
+                  : const Color(0xFFC61855).withOpacity(0),
+              padding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 8,
               ),
               child: SafeArea(
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: MediaQuery.of(context).size.width,
                   child: Stack(
@@ -261,14 +261,14 @@ class _AlbumViewState extends State<AlbumView> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: Icon(
+                          child: const Icon(
                             CupertinoIcons.back,
                             size: 38,
                           ),
                         ),
                       ),
                       AnimatedOpacity(
-                        duration: Duration(milliseconds: 250),
+                        duration: const Duration(milliseconds: 250),
                         opacity: showTopBar ? 1 : 0,
                         child: Text(
                           "Ophelia",
@@ -288,11 +288,11 @@ class _AlbumViewState extends State<AlbumView> {
                               width: 64,
                               height: 64,
                               alignment: Alignment.center,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Color(0xff14D860),
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 CupertinoIcons.play_arrow,
                                 size: 38,
                               ),
@@ -300,11 +300,11 @@ class _AlbumViewState extends State<AlbumView> {
                             Container(
                               width: 24,
                               height: 24,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: CupertinoColors.white,
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 CupertinoIcons.shuffle,
                                 color: CupertinoColors.black,
                                 size: 14,

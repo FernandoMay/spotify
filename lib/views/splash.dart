@@ -22,9 +22,9 @@ class _SplashState extends State<Splash> {
     // SharedPreferences prefs = await SharedPreferences.getInstance();
     // bool? logged = prefs.getBool('logged');
     bool logged = true;
-    print("LOGGED: ${logged}");
+    print("LOGGED: $logged");
 
-    if (logged == true && logged != null) {
+    if (logged == true) {
       Timer(const Duration(seconds: 0, milliseconds: 710),
           () => Navigator.pushReplacementNamed(context, "/house"));
     } else {
@@ -60,7 +60,7 @@ class _SplashState extends State<Splash> {
           ),
           Container(
               alignment: Alignment.center,
-              color: CupertinoColors.systemGrey2.withOpacity(0.1),
+              color: CupertinoColors.systemGrey2.withValues(alpha: 0.1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

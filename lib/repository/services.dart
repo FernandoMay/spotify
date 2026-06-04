@@ -34,7 +34,6 @@
 // }
 
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart' hide RepeatMode;
 import 'package:flutter/services.dart';
@@ -294,24 +293,28 @@ class _HouseState extends State<House> {
               children: <Widget>[
                 CupertinoButton(
                   // width: 50,
-                  child: Icon(CupertinoIcons.backward_end_fill),
                   onPressed: skipPrevious,
+                  // width: 50,
+                  child: const Icon(CupertinoIcons.backward_end_fill),
                 ),
                 playerState.isPaused
                     ? CupertinoButton(
                         // width: 50,
-                        child: Icon(CupertinoIcons.play_arrow),
                         onPressed: resume,
+                        // width: 50,
+                        child: const Icon(CupertinoIcons.play_arrow),
                       )
                     : CupertinoButton(
                         // width: 50,
-                        child: Icon(CupertinoIcons.pause),
                         onPressed: pause,
+                        // width: 50,
+                        child: const Icon(CupertinoIcons.pause),
                       ),
                 CupertinoButton(
                   // width: 50,
-                  child: Icon(CupertinoIcons.forward_end_fill),
                   onPressed: skipNext,
+                  // width: 50,
+                  child: const Icon(CupertinoIcons.forward_end_fill),
                 ),
               ],
             ),
@@ -363,15 +366,15 @@ class _HouseState extends State<House> {
                       actions: [
                         CupertinoContextMenuAction(
                           onPressed: () => setRepeatMode(RepeatMode.off),
-                          child: Text('off'),
+                          child: const Text('off'),
                         ),
                         CupertinoContextMenuAction(
                           onPressed: () => setRepeatMode(RepeatMode.track),
-                          child: Text('track'),
+                          child: const Text('track'),
                         ),
                         CupertinoContextMenuAction(
                           onPressed: () => setRepeatMode(RepeatMode.context),
-                          child: Text('context'),
+                          child: const Text('context'),
                         ),
                       ],
 

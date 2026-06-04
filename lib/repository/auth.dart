@@ -35,11 +35,9 @@ class _AuthState extends State<Auth> {
     final receivedUri = Uri.parse(data);
 
     /// Close the popup window
-    if (_popupWin != null) {
-      _popupWin.close();
-      // _popupWin = null;
-    }
-
+    _popupWin.close();
+    // _popupWin = null;
+  
     setState(() => _token = receivedUri.fragment
         .split('&')
         .firstWhere((e) => e.startsWith('access_token='))
@@ -77,18 +75,18 @@ class _AuthState extends State<Auth> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(middle: Text('Twitch web login')),
+      navigationBar: const CupertinoNavigationBar(middle: Text('Twitch web login')),
       child: Center(
-        child: _token != null && _token.isNotEmpty
+        child: _token.isNotEmpty
             ? FutureBuilder<String>(
                 future: _validateToken(),
                 builder: (_, snapshot) {
-                  if (!snapshot.hasData) return CupertinoActivityIndicator();
+                  if (!snapshot.hasData) return const CupertinoActivityIndicator();
                   return Container(child: Text('Welcome ${snapshot.data}'));
                 },
               )
             : Container(
-                child: Text('You are not connected'),
+                child: const Text('You are not connected'),
               ),
       ),
     );

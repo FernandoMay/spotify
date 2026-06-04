@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
@@ -57,7 +56,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
   seekSound() async {
     // File audioFile = await audioCache.load(widget.songUrl);
     // await advancedPlayer.setUrl(audioFile.path);
-    advancedPlayer.seek(Duration(milliseconds: 2000));
+    advancedPlayer.seek(const Duration(milliseconds: 2000));
   }
 
   @override
@@ -71,15 +70,15 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: black,
-      navigationBar: CupertinoNavigationBar(
+      navigationBar: const CupertinoNavigationBar(
         backgroundColor: black,
         // elevation: 0,
         trailing: CupertinoButton(
+            onPressed: null,
             child: Icon(
               CupertinoIcons.rectangle_expand_vertical,
               color: white,
-            ),
-            onPressed: null),
+            )),
       ),
       child: getBody(),
     );
@@ -102,7 +101,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                         color: widget.color,
                         blurRadius: 50,
                         spreadRadius: 5,
-                        offset: Offset(-10, 40))
+                        offset: const Offset(-10, 40))
                   ], borderRadius: BorderRadius.circular(20)),
                 ),
               ),
@@ -119,18 +118,18 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10),
-            child: Container(
+            child: SizedBox(
               width: size.width - 80,
               height: 70,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
+                  const Icon(
                     CupertinoIcons.add_circled,
                     color: white,
                   ),
@@ -139,12 +138,12 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                     children: [
                       Text(
                         widget.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18,
                             color: white,
                             fontWeight: FontWeight.bold),
                       ),
-                      Container(
+                      SizedBox(
                         width: 150,
                         child: Text(
                           widget.description,
@@ -156,7 +155,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                       )
                     ],
                   ),
-                  Icon(
+                  const Icon(
                     CupertinoIcons.ellipsis_vertical,
                     color: white,
                   ),
@@ -164,7 +163,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           CupertinoSlider(
@@ -178,7 +177,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 });
                 seekSound();
               }),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -197,7 +196,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
           Padding(
@@ -206,32 +205,20 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CupertinoButton(
+                    onPressed: null,
                     child: Icon(
                       CupertinoIcons.shuffle,
                       color: white.withOpacity(0.8),
                       size: 25,
-                    ),
-                    onPressed: null),
+                    )),
                 CupertinoButton(
+                    onPressed: null,
                     child: Icon(
                       CupertinoIcons.backward_fill,
                       color: white.withOpacity(0.8),
                       size: 25,
-                    ),
-                    onPressed: null),
+                    )),
                 CupertinoButton(
-                    minSize: 50,
-                    child: Container(
-                      decoration:
-                          BoxDecoration(shape: BoxShape.circle, color: primary),
-                      child: Center(
-                        child: Icon(
-                          isPlaying ? CupertinoIcons.stop : CupertinoIcons.play,
-                          size: 28,
-                          color: white,
-                        ),
-                      ),
-                    ),
                     onPressed: () {
                       if (isPlaying) {
                         stopSound(widget.songUrl);
@@ -244,28 +231,39 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                           isPlaying = true;
                         });
                       }
-                    }),
+                    }, minimumSize: const Size(50, 50),
+                    child: Container(
+                      decoration:
+                          const BoxDecoration(shape: BoxShape.circle, color: primary),
+                      child: Center(
+                        child: Icon(
+                          isPlaying ? CupertinoIcons.stop : CupertinoIcons.play,
+                          size: 28,
+                          color: white,
+                        ),
+                      ),
+                    )),
                 CupertinoButton(
+                    onPressed: null,
                     child: Icon(
                       CupertinoIcons.forward_fill,
                       color: white.withOpacity(0.8),
                       size: 25,
-                    ),
-                    onPressed: null),
+                    )),
                 CupertinoButton(
+                    onPressed: null,
                     child: Icon(
                       CupertinoIcons.refresh_thick,
                       color: white.withOpacity(0.8),
                       size: 25,
-                    ),
-                    onPressed: null)
+                    ))
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
@@ -277,7 +275,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 width: 10,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 3),
+                padding: EdgeInsets.only(top: 3),
                 child: Text(
                   "Chromecast is ready",
                   style: TextStyle(color: primary),

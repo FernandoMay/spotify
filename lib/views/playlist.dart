@@ -216,14 +216,12 @@ class _PlaylistButtons extends StatelessWidget {
         ),
         const SizedBox(width: 8.0),
         CupertinoButton(
+          onPressed: () {}, minimumSize: const Size(30.0, 30.0),
           child: const Icon(CupertinoIcons.heart_circle),
-          minSize: 30.0,
-          onPressed: () {},
         ),
         CupertinoButton(
+          onPressed: () {}, minimumSize: const Size(30.0, 30.0),
           child: const Icon(CupertinoIcons.bolt_horizontal),
-          minSize: 30.0,
-          onPressed: () {},
         ),
         const Spacer(),
         Text(
@@ -249,7 +247,7 @@ class TracksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final selected = true;
+    const selected = true;
     // context.watchCurrentTrackModel>().selected?.id == song.id;
     final textStyle = TextStyle(
       color: selected
@@ -266,7 +264,7 @@ class TracksList extends StatelessWidget {
           TableCell(child: Text('TITLE', style: headingTextStyle)),
           TableCell(child: Text('ARTIST', style: headingTextStyle)),
           TableCell(child: Text('ALBUM', style: headingTextStyle)),
-          const TableCell(child: const Icon(CupertinoIcons.timelapse)),
+          const TableCell(child: Icon(CupertinoIcons.timelapse)),
         ],
       ),
     ];

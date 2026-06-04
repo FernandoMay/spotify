@@ -4,8 +4,6 @@ import 'package:spotifyapi/repository/services.dart';
 import 'package:spotifyapi/views/albumpage.dart';
 import 'package:spotifyapi/views/albumview.dart';
 import 'package:spotifyapi/views/home.dart';
-import 'package:spotifyapi/views/login.dart';
-import 'package:spotifyapi/views/musicdetail.dart';
 import 'package:spotifyapi/views/splash.dart';
 
 void main() async {
