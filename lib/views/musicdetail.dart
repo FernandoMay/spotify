@@ -150,7 +150,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                           maxLines: 1,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 15, color: white.withOpacity(0.5)),
+                              fontSize: 15, color: white.withValues(alpha: 0.5)),
                         ),
                       )
                     ],
@@ -187,11 +187,11 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               children: [
                 Text(
                   "1:50",
-                  style: TextStyle(color: white.withOpacity(0.5)),
+                  style: TextStyle(color: white.withValues(alpha: 0.5)),
                 ),
                 Text(
                   "4:68",
-                  style: TextStyle(color: white.withOpacity(0.5)),
+                  style: TextStyle(color: white.withValues(alpha: 0.5)),
                 ),
               ],
             ),
@@ -208,14 +208,14 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                     onPressed: null,
                     child: Icon(
                       CupertinoIcons.shuffle,
-                      color: white.withOpacity(0.8),
+                      color: white.withValues(alpha: 0.8),
                       size: 25,
                     )),
                 CupertinoButton(
                     onPressed: null,
                     child: Icon(
                       CupertinoIcons.backward_fill,
-                      color: white.withOpacity(0.8),
+                      color: white.withValues(alpha: 0.8),
                       size: 25,
                     )),
                 CupertinoButton(
@@ -247,14 +247,14 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                     onPressed: null,
                     child: Icon(
                       CupertinoIcons.forward_fill,
-                      color: white.withOpacity(0.8),
+                      color: white.withValues(alpha: 0.8),
                       size: 25,
                     )),
                 CupertinoButton(
                     onPressed: null,
                     child: Icon(
                       CupertinoIcons.refresh_thick,
-                      color: white.withOpacity(0.8),
+                      color: white.withValues(alpha: 0.8),
                       size: 25,
                     ))
               ],

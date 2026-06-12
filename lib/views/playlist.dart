@@ -247,12 +247,8 @@ class TracksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const selected = true;
-    // context.watchCurrentTrackModel>().selected?.id == song.id;
     final textStyle = TextStyle(
-      color: selected
-          ? CupertinoTheme.of(context).primaryContrastingColor
-          : CupertinoTheme.of(context).barBackgroundColor,
+      color: CupertinoTheme.of(context).primaryContrastingColor,
     );
     final headingTextStyle = CupertinoTheme.of(context)
         .textTheme

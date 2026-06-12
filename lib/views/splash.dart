@@ -15,14 +15,11 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    shared_Preferences();
+    sharedPreferences();
   }
 
-  void shared_Preferences() async {
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
-    // bool? logged = prefs.getBool('logged');
+  void sharedPreferences() async {
     bool logged = true;
-    print("LOGGED: $logged");
 
     if (logged == true) {
       Timer(const Duration(seconds: 0, milliseconds: 710),
@@ -54,7 +51,7 @@ class _SplashState extends State<Splash> {
               filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
               child: Container(
                 decoration: BoxDecoration(
-                    color: CupertinoColors.white.withOpacity(0.0)),
+                    color: CupertinoColors.white.withValues(alpha: 0.0)),
               ),
             ),
           ),
@@ -70,7 +67,7 @@ class _SplashState extends State<Splash> {
                     textAlign: TextAlign.center,
                   ),
                   Container(
-                    color: CupertinoColors.black.withOpacity(0.1),
+                    color: CupertinoColors.black.withValues(alpha: 0.1),
                     height: 1.0,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 4.0, vertical: 2.0),

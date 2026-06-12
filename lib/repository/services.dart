@@ -73,8 +73,21 @@ class _HouseState extends State<House> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      home: StreamBuilder<ConnectionStatus>(
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('Spotify'),
+        trailing: Row(
+          children: [
+            _connected
+                ? CupertinoButton(
+                    onPressed: disconnect,
+                    child: const Icon(CupertinoIcons.return_icon),
+                  )
+                : Container()
+          ],
+        ),
+      ),
+      child: StreamBuilder<ConnectionStatus>(
         stream: SpotifySdk.subscribeConnectionStatus(),
         builder: (context, snapshot) {
           _connected = false;
@@ -82,23 +95,7 @@ class _HouseState extends State<House> {
           if (data != null) {
             _connected = data.connected;
           }
-          return CupertinoPageScaffold(
-            navigationBar: CupertinoNavigationBar(
-              middle: const Text('SpotifySdk'),
-              trailing: Row(
-                children: [
-                  _connected
-                      ? CupertinoButton(
-                          onPressed: disconnect,
-                          child: const Icon(CupertinoIcons.return_icon),
-                        )
-                      : Container()
-                ],
-              ),
-            ),
-            // bottomNavigationBar: _connected ? _buildBottomBar(context) : null,
-            child: _sampleFlowWidget(context),
-          );
+          return _sampleFlowWidget(context);
         },
       ),
     );
@@ -685,6 +682,7 @@ class _HouseState extends State<House> {
   Future<void> checkIfAppIsActive(BuildContext context) async {
     try {
       var isActive = await SpotifySdk.isSpotifyAppActive;
+      if (!context.mounted) return;
       final message = isActive
           ? 'Spotify app connection is active (currently playing)'
           : 'Spotify app connection is not active (currently not playing)';

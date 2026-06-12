@@ -55,11 +55,11 @@ class _HomeState extends State<Home> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    CupertinoColors.black.withOpacity(0),
-                    CupertinoColors.black.withOpacity(.9),
-                    CupertinoColors.black.withOpacity(1),
-                    CupertinoColors.black.withOpacity(1),
-                    CupertinoColors.black.withOpacity(1),
+                    CupertinoColors.black.withValues(alpha: 0),
+                    CupertinoColors.black.withValues(alpha: 0.9),
+                    CupertinoColors.black.withValues(alpha: 1),
+                    CupertinoColors.black.withValues(alpha: 1),
+                    CupertinoColors.black.withValues(alpha: 1),
                   ],
                 ),
               ),
@@ -304,7 +304,7 @@ class RowAlbumCard extends StatelessWidget {
       flex: 1,
       child: Container(
         decoration: BoxDecoration(
-          color: CupertinoColors.white.withOpacity(0.1),
+          color: CupertinoColors.white.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(4),
         ),
         clipBehavior: Clip.antiAlias,

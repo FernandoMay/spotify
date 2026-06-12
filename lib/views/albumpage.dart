@@ -166,7 +166,7 @@ class _AlbumPageState extends State<AlbumPage> {
                           SizedBox(
                             width: (size.width - 60) * 0.77,
                             child: Text(
-                              "${index + 1}  " + songAlbums[index]['title'],
+                              '${index + 1}  ${songAlbums[index]['title']}',
                               style: const TextStyle(color: white),
                             ),
                           ),
@@ -185,7 +185,7 @@ class _AlbumPageState extends State<AlbumPage> {
                                   height: 25,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: grey.withOpacity(0.8),
+                                    color: grey.withValues(alpha: 0.8),
                                   ),
                                   child: const Center(
                                       child: Icon(

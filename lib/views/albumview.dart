@@ -35,7 +35,7 @@ class _AlbumViewState extends State<AlbumView> {
         } else {
           showTopBar = false;
         }
-        print(scrollController.offset);
+        debugPrint(scrollController.offset.toString());
         setState(() {});
       });
     super.initState();
@@ -63,7 +63,7 @@ class _AlbumViewState extends State<AlbumView> {
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: CupertinoColors.black.withOpacity(.5),
+                          color: CupertinoColors.black.withValues(alpha: 0.5),
                           offset: const Offset(0, 20),
                           blurRadius: 32,
                           spreadRadius: 16,
@@ -97,9 +97,9 @@ class _AlbumViewState extends State<AlbumView> {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          CupertinoColors.black.withOpacity(0),
-                          CupertinoColors.black.withOpacity(0),
-                          CupertinoColors.black.withOpacity(1),
+                          CupertinoColors.black.withValues(alpha: 0),
+                          CupertinoColors.black.withValues(alpha: 0),
+                          CupertinoColors.black.withValues(alpha: 1),
                         ],
                       ),
                     ),
@@ -235,14 +235,12 @@ class _AlbumViewState extends State<AlbumView> {
               ),
             ),
           ),
-          // App bar
           Positioned(
-              child: Container(
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 250),
               color: showTopBar
-                  ? const Color(0xFFC61855).withOpacity(1)
-                  : const Color(0xFFC61855).withOpacity(0),
+                  ? const Color(0xFFC61855).withValues(alpha: 1)
+                  : const Color(0xFFC61855).withValues(alpha: 0),
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 8,
@@ -318,7 +316,7 @@ class _AlbumViewState extends State<AlbumView> {
                 ),
               ),
             ),
-          ))
+          )
         ],
       ),
     );
